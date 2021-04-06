@@ -19,7 +19,7 @@
 \begin{document}
 
 \begin{center}
-\large{CS 444: Project:\\Watermark Removal}\\
+\large{CS 444 Project:\\Watermark Removal}\\
 \text{Alexander Saff, Alon Flor, Kaushik A Vakadkar}
 \end{center}
 \vspace{5mm}
@@ -32,17 +32,17 @@
 
 \begin{sloppypar}
 \textbf{What to solve.}
-The goal of this project is to automatically remove watermarks from images. Watermarks are a common tool used to prevent unlicensed distribution or copying of intellectual property. In this instance, the watermarks are generally logos, text, or both placed over the image. Watermarks may be somewhat transparent or fully opaque, although if they are fully opaque they will usually be somewhat smaller than their translucent counterparts. Watermarks are usually either identifiable because the text and/or logo is a made by darkening or lightening the parts of the image underneath the logo/text. Very rarely are translucent watermarks formed by tinting the underlying image to a color other than black or white. While there have been previous attempts to create automated watermark removal tools, out approach is unique because it is the first attempt that we are aware of to make use of transformer blocks. \cite{transformer} Previous attempts have either not used neural networks at all, utilized convolution neural networks, or used generative adversarial networks. Recently transformers have been shown to match CNN performance on vision tasks with better efficiency. Most notable is Google's recent ViT \cite{dosovitskiy2020image}.
+The goal of this project is to automatically remove watermarks from images. Watermarks are a common tool used to prevent unlicensed distribution or copying of intellectual property. In this instance, the watermarks are generally logos, text, or both placed over the image. Watermarks may be somewhat transparent or fully opaque, although if they are fully opaque they will usually be somewhat smaller than their translucent counterparts. Watermarks are usually either identifiable because the text and/or logo is made by darkening or lightening the parts of the image underneath the logo/text. Very rarely are translucent watermarks formed by tinting the underlying image to a color other than black or white. While there have been previous attempts to create automated watermark removal tools, our approach is unique because it is the first attempt that we are aware of to make use of transformer blocks. Previous attempts have either not used neural networks at all, utilized convolutional neural networks, or used generative adversarial networks (GANs). Recently transformers have been shown to match CNN performance on vision tasks with better efficiency. Most notable is Google’s recent ViT \cite{dosovitskiy2020image}.
 \end{sloppypar}
 
 \begin{sloppypar}
 \textbf{How to solve.} 
-Our proposed solution is to create a neural network that takes in images and outputs the same image with the watermark removed using a transformer architecture. Images would be sourced from the CIFAR10 dataset, and watermarks would be applied to the images for training and testing purposes. The images with watermarks applied will serve as input data, while the original pictures sans watermark will serve as the ground-truth target output. Since the watermark size, location, rotation, and contents are randomly applied to each image, we are able to expand the CIFAR10 dataset to nearly limitless size, since the number of watermark-image combinations are very high. There has been some work around pretrained computer vision transformer networks that may allow for higher accuracy while keeping training time and computational load at a reasonable level. 
+Our proposed solution is to create a neural network that takes in images and outputs the same image with the watermark removed using a transformer architecture. Images would be sourced from the CIFAR10 dataset, and watermarks would be applied to the images for training and testing purposes. The images with watermarks applied will serve as input data, while the original pictures sans watermark will serve as the ground-truth target output. Since the watermark size, location, rotation, and contents are randomly applied to each image, we are able to augment the CIFAR10 dataset to nearly limitless size, since the number of watermark-image combinations are very high. There has been some work around pretrained computer vision transformer networks that may allow for higher accuracy while keeping training time and computational load at a reasonable level.
 \end{sloppypar}
 
 \begin{sloppypar}
 \textbf{How to evaluate.}
-The model will be evaluated on how closely the outputted images match the ground truth on image-watermark combinations that it has not seen before. Ideally images are scored only on the difference between pixel values in the region affected by the watermark.
+The model will be evaluated on how closely the output images match the ground truth on image-watermark combinations that it (the model) has not seen before. Ideally, images are scored only on the difference between pixel values in the region affected by the watermark. The images will be sourced from the CIFAR10 dataset.Pixel values should be averaged across RGB channels and then weighted average over all images according to image class. This will prevent the network from specializing on only one class of the CIFAR10 dataset.
 \end{sloppypar}
 
 \newpage
