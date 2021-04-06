@@ -32,12 +32,12 @@
 
 \begin{sloppypar}
 \textbf{What to solve.}
-The goal of this project is to automatically remove watermarks from images. Watermarks are a common tool used to prevent unlicensed distribution or copying of intellectual property. In this instance, the watermarks are generally logos, text, or both placed over the image. Watermarks may be somewhat transparent or fully opaque, although if they are fully opaque they will usually be somewhat smaller than their translucent counterparts. Watermarks are usually either identifiable because the text and/or logo is a made by darkening or lightening the parts of the image underneath the logo/text. Very rarely are translucent watermarks formed by tinting the underlying image to a color other than black or white. While there have been previous attempts to create automated watermark removal tools, out approach is unique because it is the first attempt that we are aware of to make use of transformer blocks. \cite{transformer} Previous attempts have either not used neural networks at all, utilized convolution neural networks, or used generative adversarial networks.
+The goal of this project is to automatically remove watermarks from images. Watermarks are a common tool used to prevent unlicensed distribution or copying of intellectual property. In this instance, the watermarks are generally logos, text, or both placed over the image. Watermarks may be somewhat transparent or fully opaque, although if they are fully opaque they will usually be somewhat smaller than their translucent counterparts. Watermarks are usually either identifiable because the text and/or logo is a made by darkening or lightening the parts of the image underneath the logo/text. Very rarely are translucent watermarks formed by tinting the underlying image to a color other than black or white. While there have been previous attempts to create automated watermark removal tools, out approach is unique because it is the first attempt that we are aware of to make use of transformer blocks. \cite{transformer} Previous attempts have either not used neural networks at all, utilized convolution neural networks, or used generative adversarial networks. Recently transformers have been shown to match CNN performance on vision tasks with better efficiency. Most notable is Google's recent ViT \cite{dosovitskiy2020image}.
 \end{sloppypar}
 
 \begin{sloppypar}
 \textbf{How to solve.} 
-Our proposed solution is to create a neural network that takes in images and outputs the same image with the watermark removed using a transformer architecture. Images would be sourced from the CIFAR10 dataset, and watermarks would be applied to the images for training and testing purposes. The images with watermarks applied will serve as input data, while the original pictures sans watermark will serve as the ground-truth target output. Since the watermark size, location, rotation, and contents are randomly applied to each image, we are able to expand the CIFAR10 dataset to nearly limitless size, since the number of watermark-image combinations are very high. 
+Our proposed solution is to create a neural network that takes in images and outputs the same image with the watermark removed using a transformer architecture. Images would be sourced from the CIFAR10 dataset, and watermarks would be applied to the images for training and testing purposes. The images with watermarks applied will serve as input data, while the original pictures sans watermark will serve as the ground-truth target output. Since the watermark size, location, rotation, and contents are randomly applied to each image, we are able to expand the CIFAR10 dataset to nearly limitless size, since the number of watermark-image combinations are very high. There has been some work around pretrained computer vision transformer networks that may allow for higher accuracy while keeping training time and computational load at a reasonable level. 
 \end{sloppypar}
 
 \begin{sloppypar}
@@ -52,7 +52,7 @@ The model will be evaluated on how closely the outputted images match the ground
 \pagebreak
 % \setcounter{page}{1}
 
-\bibliographystyle{abbrvnat}
+\bibliographystyle{ieeetr}
 % \bibliographystyle{plainnat}
 %\bibliographystyle{apalike}
 % \bibliographystyle{plain}
